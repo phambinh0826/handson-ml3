@@ -1,35 +1,21 @@
-# Configuration file for the Sphinx documentation builder.
+import os
+import sys
+sys.path.insert(0, os.path.abspath('.'))
 
-# -- Project information
+# Thông tin dự án
+project = 'Handson ML3'
+author = 'Pham Binh'
+release = '1.0'
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
-
-release = '0.1'
-version = '0.1.0'
-
-# -- General configuration
-
+# Kích hoạt Sphinx và các extension
 extensions = [
-    'sphinx.ext.duration',
-    'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
+    'nbsphinx',  # Hỗ trợ Jupyter Notebook
+    'myst_parser'  # Hỗ trợ Markdown
 ]
 
-intersphinx_mapping = {
-    'python': ('https://docs.python.org/3/', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
-}
-intersphinx_disabled_domains = ['std']
-
 templates_path = ['_templates']
-
-# -- Options for HTML output
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 
 html_theme = 'sphinx_rtd_theme'
-
-# -- Options for EPUB output
-epub_show_urls = 'footnote'
